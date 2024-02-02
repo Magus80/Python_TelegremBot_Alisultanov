@@ -51,7 +51,7 @@ def ask_and_make_move(game_player_use, fig, board):
 
 
 # Функция проверки выигрыша
-def win_check(board):
+def win_check(board, player_sequence):
     if board[0][0] == board[1][1] == board[2][2] == 'X':
         return 'win'
     if board[0][0] == board[1][1] == board[2][2] == '0':
@@ -68,6 +68,10 @@ def win_check(board):
         abc = (''.join(board_t[i]))
         if abc == 'XXX' or abc == '000':  # объедияем ячейки и смотрим столбцы на заполнение
             return 'win'
+        if player_sequence == 11:
+            return 'nothing'
+    return ' '
+
 
 
 # цикл игры пока не будет условие выигрыша.
@@ -75,7 +79,7 @@ player_sequence = 2
 # name_game_select()
 game_player = name_game_select()  # Начало игры. Получаем словарь с именем игрока
 
-while win_check(board) != 'win':  # Пока игрок не вымграл. Функция проdерки выигрыша
+while win_check(board, player_sequence) == ' ':  # Пока игрок не вымграл. Функция проdерки выигрыша
     if player_sequence % 2 == 0:
         player_name = game_player['name1']
         fig = 'X'
@@ -83,11 +87,12 @@ while win_check(board) != 'win':  # Пока игрок не вымграл. Ф�
         player_name = game_player['name2']
         fig = '0'
 
-    print(player_name, fig)
-    draw_board(board) # Рисуем доску
+    draw_board(board)  # Рисуем доску
     ask_and_make_move(player_name, fig, board)  # делаем ход и получаем массив с введеными данными
     player_sequence += 1
 
-print('-------------------------------------------')
-print(f'Игрок {player_name} победил. \nПоздравляю!')
-print('-------------------------------------------')
+draw_board(board) # Рисуем доску
+if win_check(board, player_sequence) == 'win':
+    print(f'Игрок {player_name} победил. \nПоздравляю!!!')
+else:
+    print('У ВАС НИЧЬЯ!!!')
