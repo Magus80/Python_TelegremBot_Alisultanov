@@ -81,13 +81,11 @@ while True:# цикл игры пока не будет нажат выход и
         draw_board(board)  # Рисуем доску
         ask_and_make_move(game_player_use, fig, board)  # делаем ход и получаем массив с введеными данными
         player_sequence += 1 #Счетчик для подсчета ничьи и для чередования игрока
-
     draw_board(board) # Рисуем доску итоговую
     if win_check(board, player_sequence, fig) == 'win':
         print(f'Игрок {game_player_use} победил. \nПоздравляю!!!')
     else:
         print('У ВАС НИЧЬЯ!!!')
-
     # спросить игроков, хотят ли они сыграть еще раз
     restart = input("Хотите сыграть еще раз? (y/n) ")
     if restart.lower() == 'y':
