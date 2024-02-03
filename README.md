@@ -66,7 +66,7 @@ def win_check(board, player_sequence, fig):
             return 'nothing'
     return 'next'
 
-
+#Управляющая программа 
 while True:# цикл игры пока не будет нажат выход из игры
     player_sequence = 0
     game_player = name_game_select()  # Начало игры. Получаем словарь с именем игрока
