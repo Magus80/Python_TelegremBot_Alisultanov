@@ -20,7 +20,7 @@ def draw_board(board):
     from colorama import init
     init()
     from colorama import Fore, Back, Style
-    print(Back.BLACK, Fore.GREEN, '  1   2   3')
+    print(Back.BLACK, Fore.GREEN, '  1    2    3')
     print('   -----------')
     for i in range(3):  # делаем итерацию от 0 до 3 ( в диапазоне от 0 до 2)
         print(Fore.GREEN, i + 1, end='|')
