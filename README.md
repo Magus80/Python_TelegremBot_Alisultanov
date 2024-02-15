@@ -30,7 +30,7 @@ def draw_board(board):
             if board[i][j] == ' ':
                 print(Fore.BLACK, Back.GREEN, board[i][j], end=''), print(Back.BLACK, Fore.GREEN, end='|')
             if board[i][j] == '0':
-                print(Fore.BLACK, Back.YELLOW, board[i][j], end=''), print(Back.BLACK, Fore.GREEN, end='!')
+                print(Fore.BLACK, Back.YELLOW, board[i][j], end=''), print(Back.BLACK, Fore.GREEN, end='|')
 
         # print(i + 1, '|', ' | '.join(board[i]), '|')
         print()
